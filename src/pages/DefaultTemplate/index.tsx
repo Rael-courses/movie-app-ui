@@ -15,7 +15,7 @@ export function DefaultTemplate() {
         <Header />
       </header>
       <main>
-        <DefaultErrorBoundary keyProp={route}>
+        <DefaultErrorBoundary key={route}>
           <Outlet />
         </DefaultErrorBoundary>
       </main>
