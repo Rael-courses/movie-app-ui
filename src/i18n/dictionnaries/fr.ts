@@ -12,5 +12,10 @@ export const fr: typeof en = {
         movies: "Films",
       },
     },
+    movies: {
+      searchBar: {
+        placeholder: "Rechercher des films...",
+      },
+    },
   },
 };

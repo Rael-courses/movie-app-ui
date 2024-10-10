@@ -9,5 +9,10 @@ export const en = {
         movies: "Movies",
       },
     },
+    movies: {
+      searchBar: {
+        placeholder: "Search for movies...",
+      },
+    },
   },
 };
