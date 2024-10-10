@@ -1,5 +1,6 @@
 export const en = {
   translation: {
+    error: { defaultMessage: "Sorry, something went wrong" },
     header: {
       title: "My movie application",
       description: "Search and browse among movies of TMDB database",

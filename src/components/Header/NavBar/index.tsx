@@ -10,14 +10,16 @@ export default function NavBar() {
   const isHomePage = !!useMatch("/");
   const isMoviesPage = !!useMatch("/movies");
 
-  const [value, setValue] = useState(-1);
+  const [value, setValue] = useState(0);
 
   useEffect(() => {
-    let selectedIndex = -1;
-    if (isHomePage) selectedIndex = 0;
-    if (isMoviesPage) selectedIndex = 1;
+    setValue((value) => {
+      let selectedIndex = value;
+      if (isHomePage) selectedIndex = 0;
+      if (isMoviesPage) selectedIndex = 1;
 
-    setValue(selectedIndex);
+      return selectedIndex;
+    });
   }, [isHomePage, isMoviesPage]);
 
   const handleChange = useCallback(
