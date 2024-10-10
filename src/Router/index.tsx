@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../pages/Home";
 import { DefaultTemplate } from "../pages/DefaultTemplate";
-import Details from "../pages/Details";
-import Search from "../pages/Search";
+import Movie from "../pages/Movie";
+import Movies from "../pages/Movies";
 import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
@@ -16,12 +16,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "search",
-        element: <Search />,
+        path: "movies",
+        element: <Movies />,
       },
       {
-        path: "details/:id",
-        element: <Details />,
+        path: "movies/:id",
+        element: <Movie />,
       },
       {
         path: "*",

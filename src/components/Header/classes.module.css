@@ -1,5 +1,11 @@
 .root {
   display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.content {
+  display: flex;
   flex-direction: column;
   flex: 1;
   gap: 8px;
