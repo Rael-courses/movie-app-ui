@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { TextField, InputAdornment, Box } from "@mui/material";
+import { TextField, InputAdornment, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import classes from "./classes.module.css";
 
 type Props = {
   placeholder?: string;
@@ -21,7 +20,7 @@ export default function SearchBar({ placeholder, onSearch }: Props) {
     }
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLInputElement>) => {
+  const handleClick = () => {
     onSearch?.(searchTerm);
   };
 
@@ -32,12 +31,12 @@ export default function SearchBar({ placeholder, onSearch }: Props) {
       placeholder={placeholder}
       slotProps={{
         input: {
-          startAdornment: (
-            <Box className={classes.searchIcon} onClick={handleClick}>
-              <InputAdornment position="start">
+          endAdornment: (
+            <InputAdornment position="start">
+              <IconButton onClick={handleClick}>
                 <SearchIcon />
-              </InputAdornment>
-            </Box>
+              </IconButton>
+            </InputAdornment>
           ),
         },
       }}
