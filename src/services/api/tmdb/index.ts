@@ -9,6 +9,8 @@ export class TmdbApiService {
   private readonly apiKey =
     container.resolve(EnvService).vars.REACT_APP_TMDB_API_KEY;
 
+  public readonly imageUrlBase = "https://image.tmdb.org/t/p/w500";
+
   public async search(
     term: string,
     lang: string

@@ -1,5 +1,5 @@
-import { MovieDto, SearchMoviesResponseDto } from "../services/api/tmdb/dto";
-import { MovieModel } from "./MovieModel";
+import { MovieDto, SearchMoviesResponseDto } from "../../services/api/tmdb/dto";
+import { MovieModel } from "../MovieModel";
 
 export class SearchMoviesResponseModel {
   public constructor(

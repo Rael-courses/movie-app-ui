@@ -22,5 +22,15 @@ export const en = {
         releaseDate: "Release date",
       },
     },
+    movie: {
+      card: {
+        releaseDate: "Release date",
+        originalTitle: "Original title",
+        originalLanguage: "Original language",
+        popularity: "Popularity",
+        voteAverage: "Rating",
+        voteCount: "Votes",
+      },
+    },
   },
 };

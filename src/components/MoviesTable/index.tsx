@@ -12,6 +12,7 @@ import { MovieModel } from "../../models/MovieModel";
 import useCurrentLang from "../../i18n/hooks/useCurrentLang";
 import { useTranslation } from "react-i18next";
 import { i18nMap } from "../../i18n/map";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   movies: MovieModel[];
@@ -20,6 +21,10 @@ type Props = {
 export default function MoviesTable({ movies }: Props) {
   const currentLang = useCurrentLang();
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const navigateToMoviePage = (movie: MovieModel) => {
+    navigate(`/movies/${movie.id}`, { state: { movie } });
+  };
 
   return (
     <TableContainer className={classes.root} component={Paper}>
@@ -52,7 +57,7 @@ export default function MoviesTable({ movies }: Props) {
               key={movie.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               className={classes.row}
-              onClick={() => {}}
+              onClick={() => navigateToMoviePage(movie)}
             >
               <TableCell align="center">{movie.id}</TableCell>
               <TableCell align="center" className={classes.titleCell}>

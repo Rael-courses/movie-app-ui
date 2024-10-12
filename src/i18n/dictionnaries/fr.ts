@@ -25,5 +25,15 @@ export const fr: typeof en = {
         releaseDate: "Date de sortie",
       },
     },
+    movie: {
+      card: {
+        releaseDate: "Date de sortie",
+        originalTitle: "Titre original",
+        originalLanguage: "Langue originale",
+        popularity: "Popularité",
+        voteAverage: "Évaluation",
+        voteCount: "Votes",
+      },
+    },
   },
 };
