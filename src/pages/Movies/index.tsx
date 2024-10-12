@@ -4,8 +4,9 @@ import { i18nMap } from "../../i18n/map";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import useCurrentLang from "../../i18n/hooks/useCurrentLang";
-import { MovieDto } from "../../services/api/tmdb/dto";
 import useSearchMoviesQuery from "../../queries/SearchMoviesQuery";
+import MoviesTable from "../../components/MoviesTable";
+import { MovieModel } from "../../models/MovieModel";
 
 export default function Movies() {
   const { t } = useTranslation();
@@ -13,7 +14,7 @@ export default function Movies() {
   const currentLang = useCurrentLang();
   const { searchMoviesQueryResult: searchMoviesResponse } =
     useSearchMoviesQuery(searchTerm, currentLang);
-  const movies = searchMoviesResponse.data?.results ?? ([] as MovieDto[]);
+  const movies = searchMoviesResponse.data?.results ?? ([] as MovieModel[]);
 
   return (
     <Box>
@@ -21,13 +22,8 @@ export default function Movies() {
         placeholder={t(i18nMap.movies.searchBar.placeholder)}
         onSearch={setSearchTerm}
       />
-      <Box>
-        {movies.map((m) => (
-          <Box key={m.id}>
-            {m.title}: {m.overview}
-          </Box>
-        ))}
-      </Box>
+
+      <MoviesTable movies={movies} />
     </Box>
   );
 }

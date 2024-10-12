@@ -13,6 +13,14 @@ export const en = {
       searchBar: {
         placeholder: "Search for movies...",
       },
+      table: {
+        id: "ID",
+        title: "Title",
+        voteAverage: "Rating",
+        voteCount: "Vote count",
+        popularity: "Popularity",
+        releaseDate: "Release date",
+      },
     },
   },
 };

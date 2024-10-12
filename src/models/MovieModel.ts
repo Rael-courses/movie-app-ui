@@ -30,8 +30,8 @@ export class MovieModel {
     );
   }
 
-  // Example of a method to format the release date
-  public getFormattedReleaseDate(): string {
-    return this.releaseDate.toLocaleDateString();
+  // Format the release date based on the locale
+  public getFormattedReleaseDate(lang: string): string {
+    return this.releaseDate.toLocaleDateString(lang);
   }
 }

@@ -16,6 +16,14 @@ export const fr: typeof en = {
       searchBar: {
         placeholder: "Rechercher des films...",
       },
+      table: {
+        id: "ID",
+        title: "Titre",
+        voteAverage: "Évaluation",
+        voteCount: "Nb de votes",
+        popularity: "Popularité",
+        releaseDate: "Date de sortie",
+      },
     },
   },
 };
