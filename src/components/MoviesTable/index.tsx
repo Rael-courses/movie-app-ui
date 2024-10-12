@@ -28,7 +28,7 @@ export default function MoviesTable({ movies }: Props) {
 
   return (
     <TableContainer className={classes.root} component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell align="center" className={classes.headCell}>
