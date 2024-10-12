@@ -1,6 +1,7 @@
 import { container, singleton } from "tsyringe";
-import { SearchMoviesResultDto, searchMoviesResultDtoSchema } from "./dto";
+import { searchMoviesResponseDtoSchema } from "./dto";
 import { EnvService } from "../../envService";
+import { SearchMoviesResponseModel } from "../../../models/SearchMoviesResponseModel";
 
 @singleton()
 export class TmdbApiService {
@@ -11,11 +12,12 @@ export class TmdbApiService {
   public async search(
     term: string,
     lang: string
-  ): Promise<SearchMoviesResultDto> {
+  ): Promise<SearchMoviesResponseModel> {
     return fetch(
       `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${lang}&query=${term}&page=1&include_adult=false`
     )
       .then((r) => r.json())
-      .then((json) => searchMoviesResultDtoSchema.parseAsync(json));
+      .then((json) => searchMoviesResponseDtoSchema.parseAsync(json))
+      .then((dto) => SearchMoviesResponseModel.fromDto(dto));
   }
 }

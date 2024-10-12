@@ -7,17 +7,19 @@ export const movieDtoSchema = z.object({
   overview: z.string(),
   popularity: z.number(),
   poster_path: z.string().nullable(),
-  release_date: z.string(),
+  release_date: z.coerce.date(),
   title: z.string(),
   vote_average: z.number(),
   vote_count: z.number(),
 });
 export type MovieDto = z.infer<typeof movieDtoSchema>;
 
-export const searchMoviesResultDtoSchema = z.object({
+export const searchMoviesResponseDtoSchema = z.object({
   page: z.number(),
   results: z.array(movieDtoSchema),
   total_pages: z.number(),
   total_results: z.number(),
 });
-export type SearchMoviesResultDto = z.infer<typeof searchMoviesResultDtoSchema>;
+export type SearchMoviesResponseDto = z.infer<
+  typeof searchMoviesResponseDtoSchema
+>;
