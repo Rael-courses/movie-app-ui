@@ -35,7 +35,7 @@ export default function MovieCard({ movie }: Props) {
 
       <CardContent>
         <Rating
-          defaultValue={movie.voteAverage}
+          value={movie.voteAverage}
           precision={0.25}
           max={10}
           size="large"

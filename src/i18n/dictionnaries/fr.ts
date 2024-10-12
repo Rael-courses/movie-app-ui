@@ -13,6 +13,7 @@ export const fr: typeof en = {
       },
     },
     movies: {
+      page: "Films",
       searchBar: {
         placeholder: "Rechercher des films...",
       },
@@ -33,6 +34,9 @@ export const fr: typeof en = {
         popularity: "Popularité",
         voteAverage: "Évaluation",
         voteCount: "Votes",
+      },
+      error: {
+        notFound: "Film non trouvé",
       },
     },
   },

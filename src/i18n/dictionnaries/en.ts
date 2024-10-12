@@ -10,6 +10,7 @@ export const en = {
       },
     },
     movies: {
+      page: "Movies",
       searchBar: {
         placeholder: "Search for movies...",
       },
@@ -30,6 +31,9 @@ export const en = {
         popularity: "Popularity",
         voteAverage: "Rating",
         voteCount: "Votes",
+      },
+      error: {
+        notFound: "Movie not found",
       },
     },
   },

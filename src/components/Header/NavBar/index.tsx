@@ -8,7 +8,7 @@ export default function NavBar() {
   const { t } = useTranslation();
 
   const isHomePage = !!useMatch("/");
-  const isMoviesPage = !!useMatch("/movies");
+  const isMoviesPage = !!useMatch("/movies/*");
 
   const [value, setValue] = useState(0);
 
