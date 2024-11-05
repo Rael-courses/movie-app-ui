@@ -1,9 +1,3 @@
-# This is a guide for building a React SPA application
-
-This guide aims to practice playfully on React v18 to build an SPA application leveraging TMDB: the movie database.
-
-https://rael-calitro.notion.site/TP-1-movie-app-ui-11ab3d73944080c99d27c87e54a7d2f3?pvs=4
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

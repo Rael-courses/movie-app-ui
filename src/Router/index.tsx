@@ -1,15 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../pages/Home";
-import { DefaultTemplate } from "../pages/DefaultTemplate";
-import Movie from "../pages/Movie";
 import Movies from "../pages/Movies";
+import Movie from "../pages/Movie";
 import NotFound from "../pages/NotFound";
+import PageTemplate from "../pages/PageTemplate";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DefaultTemplate />,
-
+    element: <PageTemplate />,
     children: [
       {
         path: "",

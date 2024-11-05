@@ -3,6 +3,7 @@ import { en } from "./en";
 export const fr: typeof en = {
   translation: {
     error: { defaultMessage: "Désolé, une erreur est survenue" },
+
     header: {
       title: "Mon application de films",
       description:
@@ -12,31 +13,10 @@ export const fr: typeof en = {
         movies: "Films",
       },
     },
+
     movies: {
-      page: "Films",
       searchBar: {
         placeholder: "Rechercher des films...",
-      },
-      table: {
-        id: "ID",
-        title: "Titre",
-        voteAverage: "Évaluation",
-        voteCount: "Nb de votes",
-        popularity: "Popularité",
-        releaseDate: "Date de sortie",
-      },
-    },
-    movie: {
-      card: {
-        releaseDate: "Date de sortie",
-        originalTitle: "Titre original",
-        originalLanguage: "Langue originale",
-        popularity: "Popularité",
-        voteAverage: "Évaluation",
-        voteCount: "Votes",
-      },
-      error: {
-        notFound: "Film non trouvé",
       },
     },
   },

@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
-import classes from "./classes.module.css";
 import NavBar from "./NavBar";
-import LanguageSelector from "./LanguageSelector";
+import classes from "./classes.module.css";
 import { useTranslation } from "react-i18next";
 import { i18nMap } from "../../i18n/map";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ export default function Header() {
           {t(i18nMap.header.title)}
         </Typography>
 
-        <Typography variant="body2">{t(i18nMap.header.description)}</Typography>
+        <Typography variant="body2">{t("header.description")}</Typography>
 
         <NavBar />
       </Box>

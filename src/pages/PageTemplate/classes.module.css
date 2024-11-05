@@ -11,14 +11,14 @@
     margin-bottom: 8px;
   }
 
-  & main {
+  & > main {
     display: flex;
     flex: 1;
     flex-direction: column;
     padding: 0 16px;
   }
 
-  & footer {
+  & > footer {
     display: flex;
     padding: 8px 16px;
     margin-top: 8px;

@@ -1,57 +1,36 @@
 import { Tab, Tabs } from "@mui/material";
-import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useMatch, useNavigate } from "react-router-dom";
 import { i18nMap } from "../../../i18n/map";
+import { useTranslation } from "react-i18next";
 
 export default function NavBar() {
-  const { t } = useTranslation();
-
   const isHomePage = !!useMatch("/");
-  const isMoviesPage = !!useMatch("/movies/*");
+  const isMoviesPage = !!useMatch("/movies");
 
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    setValue((value) => {
-      let selectedIndex = value;
-      if (isHomePage) selectedIndex = 0;
-      if (isMoviesPage) selectedIndex = 1;
-
-      return selectedIndex;
-    });
-  }, [isHomePage, isMoviesPage]);
-
-  const handleChange = useCallback(
-    (_: React.SyntheticEvent, newIndex: number) => {
-      setValue(newIndex);
-    },
-    [setValue]
-  );
+  const value = isHomePage ? 0 : isMoviesPage ? 1 : false;
 
   const navigate = useNavigate();
-  const goto = useCallback(
-    (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-      event.preventDefault();
-      navigate(href);
-    },
-    [navigate]
-  );
+
+  const { t } = useTranslation();
 
   return (
-    <Tabs role="navigation" value={value} onChange={handleChange}>
+    <Tabs role="navigation" value={value}>
       <Tab
         label={t(i18nMap.header.nav.home)}
         component="a"
-        aria-current={isHomePage}
-        onClick={(e) => goto(e, "/")}
+        aria-selected={isHomePage}
+        onClick={() => {
+          navigate("/");
+        }}
       />
 
       <Tab
         label={t(i18nMap.header.nav.movies)}
         component="a"
-        aria-current={isMoviesPage}
-        onClick={(e) => goto(e, "/movies")}
+        aria-selected={isMoviesPage}
+        onClick={() => {
+          navigate("/movies");
+        }}
       />
     </Tabs>
   );
