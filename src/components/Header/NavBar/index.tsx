@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 export default function NavBar() {
   const isHomePage = !!useMatch("/");
-  const isMoviesPage = !!useMatch("/movies");
+  const isMoviesPage = !!useMatch("/movies/*");
 
   const value = isHomePage ? 0 : isMoviesPage ? 1 : false;
 
