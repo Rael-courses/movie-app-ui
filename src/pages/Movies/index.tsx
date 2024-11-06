@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import SearchBar from "../../components/SearchBar";
 import { useTranslation } from "react-i18next";
 import { i18nMap } from "../../i18n/map";
 import { useSearchMoviesQuery } from "../../queries/useSearchMoviesQuery";
 import { useState } from "react";
+import MoviesTable from "../../components/MoviesTable";
 
 export default function Movies() {
   const { t, i18n } = useTranslation();
@@ -29,13 +30,7 @@ export default function Movies() {
         onSearch={onSearch}
       />
 
-      <Box>
-        {movies.map((m) => (
-          <Typography key={m.id}>
-            {m.title}, {m.getFormattedReleaseDate(currentLang)}
-          </Typography>
-        ))}
-      </Box>
+      <MoviesTable movies={movies} />
     </Box>
   );
 }
