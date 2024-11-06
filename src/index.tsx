@@ -1,3 +1,6 @@
+// This must be imported for first
+import "reflect-metadata";
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -6,6 +9,11 @@ import reportWebVitals from "./reportWebVitals";
 
 // enables i18n
 import "./i18n";
+
+import { container } from "tsyringe";
+import { EnvService } from "./services/envService";
+
+container.resolve(EnvService);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
