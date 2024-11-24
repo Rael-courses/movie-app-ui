@@ -5,10 +5,15 @@ import SearchIcon from "@mui/icons-material/Search";
 type Props = {
   placeholder?: string;
   onSearch?: (searchTerm: string) => void;
+  defaultSearchTerm?: string;
 };
 
-export default function SearchBar({ placeholder, onSearch }: Props) {
-  const [searchTerm, setSearchTerm] = useState("");
+export default function SearchBar({
+  placeholder,
+  onSearch,
+  defaultSearchTerm,
+}: Props) {
+  const [searchTerm, setSearchTerm] = useState(defaultSearchTerm || "");
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
