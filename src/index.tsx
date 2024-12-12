@@ -11,7 +11,20 @@ import reportWebVitals from "./reportWebVitals";
 import "./i18n";
 
 import { container } from "tsyringe";
+import { IMovieApiServiceToken } from "./services/api/IMovieApiService";
+import { MovieAppApiService } from "./services/api/movieAppApi";
 import { EnvService } from "./services/envService";
+// import { TmdbApiService } from "./services/api/tmdb";
+
+// Bind the right movie api service to the interface
+container.register<MovieAppApiService>(IMovieApiServiceToken, {
+  useClass: MovieAppApiService,
+});
+
+// Or you can bind the other movie api service to the interface
+// container.register<TmdbApiService>(IMovieApiServiceToken, {
+//   useClass: TmdbApiService,
+// });
 
 container.resolve(EnvService);
 

@@ -1,6 +1,6 @@
 import { singleton } from "tsyringe";
-import { MovieModel } from "../../models/MovieModel";
-import { MovieDto } from "../../services/api/tmdb/dto";
+import { MovieModel } from "../../../../../models/MovieModel";
+import { MovieDto } from "../../dto";
 
 @singleton()
 export class MovieMapper {

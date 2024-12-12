@@ -1,6 +1,6 @@
 import { container, singleton } from "tsyringe";
-import { SearchMoviesResponseDto } from "../../services/api/tmdb/dto";
-import { SearchMoviesResponseModel } from "../../models/SearchMoviesResponseModel";
+import { SearchMoviesResponseDto } from "../../dto";
+import { SearchMoviesResponseModel } from "../../../../../models/SearchMoviesResponseModel";
 import { MovieMapper } from "../MovieMapper";
 
 @singleton()

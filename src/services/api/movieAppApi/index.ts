@@ -1,22 +1,19 @@
 import { container, singleton } from "tsyringe";
 import { movieDtoSchema, searchMoviesResponseDtoSchema } from "./dto";
-import { EnvService } from "../../envService";
-import { SearchMoviesResponseMapper } from "./mappers/SearchMoviesResponseMapper";
 import { SearchMoviesResponseModel } from "../../../models/SearchMoviesResponseModel";
-import { MovieMapper } from "./mappers/MovieMapper";
 import { MovieModel } from "../../../models/MovieModel";
+import { MovieMapper } from "./mappers/MovieMapper";
+import { SearchMoviesResponseMapper } from "./mappers/SearchMoviesResponseMapper";
 import { IMovieApiService } from "../IMovieApiService";
 
 @singleton()
-export class TmdbApiService implements IMovieApiService {
-  private readonly apiKey =
-    container.resolve(EnvService).vars.REACT_APP_TMDB_API_KEY;
+export class MovieAppApiService implements IMovieApiService {
   private readonly searchMoviesResponseMapper = container.resolve(
     SearchMoviesResponseMapper
   );
   private readonly movieMapper = container.resolve(MovieMapper);
 
-  private readonly baseUrl = "https://api.themoviedb.org/3";
+  private readonly baseUrl = "https://localhost:7044/api";
   private readonly imageUrlBase = "https://image.tmdb.org/t/p/w500";
   public readonly fallbackImageUrl = `/images/movie-fallback.png`;
 
@@ -24,9 +21,7 @@ export class TmdbApiService implements IMovieApiService {
     term: string,
     lang: string
   ): Promise<SearchMoviesResponseModel> {
-    return fetch(
-      `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${lang}&query=${term}&page=1&include_adult=false`
-    )
+    return fetch(`${this.baseUrl}/movies?language=${lang}&search_term=${term}`)
       .then((r) => r.json())
       .then((json) => searchMoviesResponseDtoSchema.parse(json))
       .then((dto) => this.searchMoviesResponseMapper.mapDtoToModel(dto));
@@ -46,9 +41,7 @@ export class TmdbApiService implements IMovieApiService {
   }
 
   public async getMovie(id: number, lang: string): Promise<MovieModel | null> {
-    return fetch(
-      `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=${lang}`
-    )
+    return fetch(`${this.baseUrl}/movies/${id}?&language=${lang}`)
       .then((r) => {
         if (r.status === 404) {
           return null; // Return null if 404 is encountered
